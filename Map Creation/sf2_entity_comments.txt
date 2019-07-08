@@ -1,0 +1,301 @@
+Because Hammer crashes if these comments are included. I will put them here.
+
+// =========================================================================================
+// States to the gamemode that the map is intended for Raid. This is not an exclusive state.
+
+- "classname" 		"info_target"
+- "targetname"		""sf2_raid_map"
+
+// =========================================================================================
+// States to the gamemode that the map is intended for Proxy Survival. 
+// This requires "sf2_survival_map" to be present as well in order to be effective.
+
+- "classname" 		"info_target"
+- "targetname"		"sf2_proxy_map"
+
+// =========================================================================================
+// States to the gamemode that this map is intended for Survival 2.
+// This is only supported in a private build of Slender Fortress.
+
+- "classname" 		"info_target"
+- "targetname"		"sf2_survival2_map"
+
+// =========================================================================================
+// States to the gamemode that the map is intended for Survival. This is not an exclusive state.
+
+- "classname" 		"info_target"
+- "targetname"		"sf2_survival_map"
+
+// =========================================================================================
+// This entity tells the gamemode that the map supports escape music via the map itself.
+// This will stop the page music from playing to prevent interference with the global music that will trigger via escape logic if setup.
+
+- "classname" 		"info_target"
+- "targetname"		"sf2_escape_custommusic"
+
+// =========================================================================================
+// This ambient generic is used as a reference and precacher. 
+// The sound file listed in this entity will be played to all players during the intro phase.
+
+- "classname" 		"ambient_generic"
+- "targetname"		"sf2_intro_music"
+
+// =========================================================================================
+// This ambient generic is used as a reference and precacher.
+// The sound file listed in the entity will be played depending on the amount of pages collected within a ranged fashion.
+// For example, this will be played if the players haven't picked up any pages or have picked up a page.
+
+- "classname" 		"ambient_generic"
+- "targetname"		"sf2_page_music_0-1"
+
+// =========================================================================================
+// Custom Escape music that is triggered through escape logic. This entity will play globally.
+// If you do not wish for this, please set up page sounds carefully so that escape music plays through that instead.
+
+- "classname" 		"ambient_generic"
+- "targetname"		"escape_music"
+
+// =========================================================================================
+// This ambient generic is used as a reference and precacher. 
+// The sound file listed within this entity will be played whenever a player picks up a page. (Currently a private feature)
+
+- "classname" 		"ambient_generic"
+- "targetname"		"sf2_page_sound"
+
+// =========================================================================================
+// This entity determins how much time is given for the escape phase. 300 seconds equals to 5 minutes for example.
+// Once the timer runs out, any players that failed to escape will die and the round will end.
+
+- "classname" 		"info_target"
+- "targetname"		"sf2_escape_time_limit_360"
+
+// =========================================================================================
+// This entity is where all the desired events are processed for the escape phase.
+// This will function similar to a regular trigger_logic, with the exception that all outputs must use OnUser1.
+
+- "classname" 		"info_target"
+- "targetname"		"sf2_logic_escape"
+
+// =========================================================================================
+// This entity determins how much time players should be given to find pages.
+// This is counted in seconds, so for example, 300 would equal to 5 minutes of time to find a page.
+// Replace the # with the number that you desire.
+
+- "classname" 		"info_target"
+- "targetname"		"sf2_time_limit_120"
+
+// =========================================================================================
+// This entity determins much time, in seconds that should be rewarded once a page is collected. 
+// The time rewarded, cannot go above the time originally set.
+// Replace the # with the number you desire.
+
+- "classname" 		"info_target"
+- "targetname"		"sf2_time_gain_from_page_20"
+
+// =========================================================================================
+// This entity determins how many players should be allowed on RED for each round.
+// For performance reasons, the ideal player count is around 6 to 8 players.
+// Varies depending on multiple factors such as the amount of possible spawning bosses and the overall size of complexitity of the navmesh on the map itself.
+// Server hosts can override the max players if there is balance / performance issues.
+
+- "classname" 		"info_target"
+- "targetname"		"sf2_maxplayers_8"
+
+// =========================================================================================
+// This entity determins how many pages should spawn in the map. 
+// You set this relative to the amount of available unique or total grouped spawns you have made by replacing the # with a number.
+
+- "classname" 		"info_target"
+- "targetname"		"sf2_maxpages_1"
+
+// =========================================================================================
+// This is the very first message that the players see during the intro phase. 
+// It is recommended to keep this one empty to avoid a bug where it is skipped by the client.
+
+- "classname" 		"game_text"
+- "targetname"		"sf2_intro_text_1"
+
+// =========================================================================================
+// This is the second intro text message that players will see during the intro phase. 
+// You can have as many intro texts as you wish, as long as you count up in order from 1, 2, 3 etc.
+// NOTE: Leave your first one is empty to avoid a bug where the first intro text is skipped.
+
+- "classname" 		"game_text"
+- "targetname"		"sf2_intro_text_2"
+
+// =========================================================================================
+// This is the third message that the player will see during the intro phase. 
+// As stated before, you can have as many as you want, as long as your intro duration is long enough to support it.
+
+- "classname" 		"game_text"
+- "targetname"		"sf2_intro_text_3"
+
+// =========================================================================================
+// This is the message that is displayed to players when the escape phase begins.
+
+- "classname" 		"game_text"
+- "targetname"		"sf2_escape_message"
+
+// =========================================================================================
+// This is the message that players will see when a page is obtained.
+// This can be a single message or you can include the page count here. 
+// Example of this being 'You have %d out of %d pages!'.
+
+- "classname" 		"game_text"
+- "targetname"		"sf2_page_message"
+
+// =========================================================================================
+// This is the message that the players will see after the intro phase has concluded.
+// It's usually best to state the objective here.
+
+- "classname" 		"game_text"
+- "targetname"		"sf2_intro_message"
+
+// =========================================================================================
+// This logic relay is triggered when the required amount of players has died.
+// So this will be where all the end game events would go. Such as the escape doors opening. (Currently a private feature)
+
+- "classname" 		"logic_relay"
+- "targetname"		"sf2_survival2_logic"
+
+// =========================================================================================
+// This entity overrides the default intro fade for the gamemode if present.
+// This can be used to make the intro longer.
+// You can adjust the alpha and rgb values to your liking as well as fade durationg and fade hold time.
+
+- "classname" 		"env_fade"
+- "targetname"		"sf2_intro_fade"
+
+// =========================================================================================
+// This entity is used to trigger events or entities at the start of the intro phase.
+// This is useful if you wish to do some advanced intro things. Like a plane crash maybe?
+
+- "classname" 		"logic_relay"
+- "targetname"		"sf2_intro_relay"
+
+// =========================================================================================
+// This is the trigger for the PvP Arena, when a client is inside this trigger.
+// They will be given weapons and will be able to fight other players in the zone.
+// All triggers with this name, must be joined together into one trigger. 
+// Plus, this entity is required to be in the map.
+
+- "classname" 		"trigger_multiple"
+- "targetname"		"sf2_pvp_arena"
+
+// =========================================================================================
+// This is the trigger for PvE.
+// This grants players weapons but they can only fight the environment, such as breakables & npcs. (Currently a private feature)
+
+- "classname" 		"trigger_multiple"
+- "targetname"		"sf2_pve_arena"
+
+// =========================================================================================
+// This is the trigger allows players to escape the play area during the escape phase.
+// You must include "sf2_escape_spawnpoint" entities or this will not work.
+// This entity must be present in the map.
+
+- "classname" 		"trigger_multiple"
+- "targetname"		"sf2_escape_trigger"
+
+// =========================================================================================
+// This is a spawn point for players that have escaped the play area during the escape phase.
+// At least one escape spawn point must be present in the map.
+
+- "classname" 		"info_target"
+- "targetname"		"sf2_escape_spawnpoint"
+
+// =========================================================================================
+// This is a spawn point for the PvP arena. It allows players who enable PvP spawning to spawn here instead.
+// At least one of these spawn points must be present in the map.
+
+- "classname" 		"info_target"
+- "targetname"		"sf2_pvp_spawnpoint"
+
+// =========================================================================================
+// This is the entity that the gamemode uses for the page model. It is a reference model only.
+
+- "classname" 		"prop_dynamic"
+- "targetname"		"sf2_page_model"
+
+// =========================================================================================
+// This is the spawn point for a page model to be placed.
+// This is treated as a single spawn point on it's own.
+// Use 'angles' to determin how the model is rotated.
+
+- "classname" 		"info_target"
+- "targetname"		"sf2_page_spawnpoint"
+
+// =========================================================================================
+// This is the spawn point for a page model to be placed.
+// However, this is treated as a group spawn, so only one page will be placed out of a set of spawns.
+
+- "classname" 		"info_target"
+- "targetname"		"sf2_page_spawnpoint_room1"
+
+// =========================================================================================
+// States to the gamemode the boss that is intended to be used in this map, as the default boss.
+// Replace 'name' with the profile entry name of the boss. (Used to disable random bosses.)
+
+- "classname" 		"info_target"
+- "targetname"		"sf2_boss_override_name"
+
+// =========================================================================================
+// States to the gamemode that players should have unlimited flashlight on the map.
+
+- "classname" 		"info_target"
+- "targetname"		"sf2_infiniteflashlight"
+
+// =========================================================================================
+// States to the gamemode that players should have unlimited blink on the map.
+
+- "classname" 		"info_target"
+- "targetname"		"sf2_infiniteblink"
+
+// =========================================================================================
+// States to the gamemode that players should have unlimited sprint on the map.
+
+- "classname" 		"info_target"
+- "targetname"		"sf2_infinitesprint"
+
+// =========================================================================================
+// States to the gamemode to not prevent players from jumping when they happen to be out of sprint.
+// Useful for maps that require a lot of jumping! (Currently a private feature)
+
+- "classname" 		"info_target"
+- "targetname"		"sf2_nojumprestrict"
+
+// =========================================================================================
+// This entity is used to recompute where the NextBot entity can travel towards.
+// It is ideal to use this when you have something that isn't opened by a trigger that a Player and NPC could use.
+
+- "classname" 		"tf_point_nav_interface"
+- "targetname"		"sf2_nav_interface"
+
+// =========================================================================================
+// This is the relay that triggers the recompute function 5 times.
+// The min required (as seen from Valve's own use of this entity) is 3 times.
+// However, it's better to be safe than sorry in most cases.
+
+- "classname" 		"logic_relay"
+- "targetname"		"logic_recompute_navmesh"
+
+// =========================================================================================
+// This entity is used to spawn the boss into a specific location.
+// Rather than having the boss spawn into any location that it wishes, we will force spawn it here.
+
+- "classname" 		"info_npc_spawn_destination"
+- "targetname"		"sf2_spawn_name"
+
+// =========================================================================================
+// This trigger is used to respawn the boss. It is intended as a fail safe in case of certain events.
+// Such as the boss falling out of the level. Or getting removed by the anti-stuck check.
+
+- "classname" 		"trigger_multiple"
+- "targetname"		"sf2_failsafe_trigger"
+
+// =========================================================================================
+// This entity is used to re-active the failsafe trigger after it has been triggered.
+// The delay is intended to stop an infinite spawn loop.
+
+- "classname" 		"logic_timer"
+- "targetname"		"sf2_failsafe_timer"
