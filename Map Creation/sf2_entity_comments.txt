@@ -281,21 +281,22 @@ Because Hammer crashes if these comments are included. I will put them here.
 
 // =========================================================================================
 // This entity is used to spawn the boss into a specific location.
-// Rather than having the boss spawn into any location that it wishes, we will force spawn it here.
+// Rather than having the boss spawn into any location that it wishes, we can force spawn it here.
+// This entity is ideal for spawning in a single boss for a boss battle. As such it's only ever used in RAID.
 
 - "classname" 		"info_npc_spawn_destination"
 - "targetname"		"sf2_spawn_name"
 
 // =========================================================================================
-// This trigger is used to respawn the boss. It is intended as a fail safe in case of certain events.
-// Such as the boss falling out of the level. Or getting removed by the anti-stuck check.
+// This trigger is used to despawn the boss. It is intended as a fail safe in case of certain events.
+// Such as the boss falling out of the level. Or falling into something such as a death pit of your own making.
 
 - "classname" 		"trigger_multiple"
-- "targetname"		"sf2_failsafe_trigger"
+- "targetname"		"sf2_boss_despawn_trigger"
 
 // =========================================================================================
-// This entity is used to re-active the failsafe trigger after it has been triggered.
-// The delay is intended to stop an infinite spawn loop.
+// This entity is a dedicated boss spawn point for Survival 2. It only works in Survival 2.
+// Where ever this entity is placed, the boss can choose this spot to spawn from.
 
-- "classname" 		"logic_timer"
-- "targetname"		"sf2_failsafe_timer"
+- "classname" 		"info_target"
+- "targetname"		"sf2_boss_spawnpoint"
