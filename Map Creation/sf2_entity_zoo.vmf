@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "7937"
-	"mapversion" "9"
+	"mapversion" "11"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "9"
+	"mapversion" "11"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -1060,7 +1060,7 @@ entity
 	"origin" "112 496 -48"
 	"spawnflags" "1"
 	"StartDisabled" "0"
-	"targetname" "sf2_pvp_arena"
+	"targetname" "sf2_pvp_trigger"
 	"wait" "1"
 	solid
 	{
@@ -1153,7 +1153,7 @@ entity
 	"origin" "144 496 -48"
 	"spawnflags" "1"
 	"StartDisabled" "0"
-	"targetname" "sf2_pve_arena"
+	"targetname" "sf2_pve_trigger"
 	"wait" "1"
 	solid
 	{

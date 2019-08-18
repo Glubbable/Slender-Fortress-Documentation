@@ -180,14 +180,14 @@ Because Hammer crashes if these comments are included. I will put them here.
 // Plus, this entity is required to be in the map.
 
 - "classname" 		"trigger_multiple"
-- "targetname"		"sf2_pvp_arena"
+- "targetname"		"sf2_pvp_trigger"
 
 // =========================================================================================
 // This is the trigger for PvE.
 // This grants players weapons but they can only fight the environment, such as breakables & npcs. (Currently a private feature)
 
 - "classname" 		"trigger_multiple"
-- "targetname"		"sf2_pve_arena"
+- "targetname"		"sf2_pve_trigger"
 
 // =========================================================================================
 // This is the trigger allows players to escape the play area during the escape phase.
